@@ -1,7 +1,7 @@
 {
     "name": "pxt-audio-recording",
-    "description": "Record sound clips. micro:bit (V2) only",
     "version": "0.0.2",
+    "description": "Record sound clips. micro:bit (V2) only",
     "license": "MIT",
     "dependencies": {
         "core": "*"
@@ -16,6 +16,7 @@
     "testFiles": [
         "test.ts"
     ],
+    "public": true,
     "targetVersions": {
         "target": "7.0.42",
         "targetId": "microbit"
@@ -23,6 +24,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj",
-    "public": true
+    "preferredEditor": "tsprj"
 }
