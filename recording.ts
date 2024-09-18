@@ -221,9 +221,9 @@ namespace record {
     }
 
     /**
-     * Send the current recording to serial
+     * Send recorded audio clip data to serial
      */
-    //% block="send to serial"
+    //% block="send audio clip to serial"
     //% shim=record::sendToSerial
     //% blockId="record_sendToSerial"
     //% weight=50
