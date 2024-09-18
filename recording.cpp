@@ -1,3 +1,8 @@
+/**
+ * (c) 2024, Micro:bit Educational Foundation and contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
 /*
     Based on
     https://github.com/microsoft/pxt-microbit/blob/master/libs/audio-recording/recording.cpp
