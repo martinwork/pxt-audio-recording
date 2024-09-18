@@ -1,1 +1,19 @@
-// tests go here; this will not be compiled when this package is used as an extension.
+serial.setTxBufferSize(254)
+
+// record
+record.setSampleRate(11000, record.AudioSampleRateScope.Recording)
+basic.showIcon(IconNames.SmallSquare)
+record.startRecording(record.BlockingState.Blocking)
+basic.clearScreen()
+
+// send to serial
+basic.showLeds(`
+        . # . . .
+        . # # . .
+        . # # # .
+        . # # . .
+        . # . . .
+        `)
+record.sendToSerial()
+basic.clearScreen()
+

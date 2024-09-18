@@ -3,6 +3,8 @@
 
 ## Use as Extension
 
+This is an experiment. Please don't use this repo directly.
+
 This repository can be added as an **extension** in MakeCode.
 
 * open [https://makecode.microbit.org/](https://makecode.microbit.org/)
