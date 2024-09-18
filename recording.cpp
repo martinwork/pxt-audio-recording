@@ -247,4 +247,14 @@ void sendToSerial() {
 #endif
 }
 
+
+//%
+bool sendingToSerial() {
+#if MICROBIT_CODAL
+    return sending;
+#else
+    return false;
+#endif
+}
+
 } // namespace record

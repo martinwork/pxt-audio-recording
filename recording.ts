@@ -226,8 +226,19 @@ namespace record {
     //% block="send audio clip to serial"
     //% shim=record::sendToSerial
     //% blockId="record_sendToSerial"
-    //% weight=50
+    //% weight=20
     export function sendToSerial(): void {
         basic.pause(0)
+    }
+
+    /**
+     * Test whether sending to serial
+     */
+    //% block="sending to serial"
+    //% blockId="record_sendingToSerial"
+    //% shim=record::sendingToSerial
+    //% weight=10
+    export function sendingToSerial(): boolean {
+        return false
     }
 }
