@@ -47,6 +47,7 @@ namespace record {
 static StreamRecording *recording = NULL;
 static SplitterChannel *splitterChannel = NULL;
 static MixerChannel *channel = NULL;
+static bool sending = false;
 #endif
 
 
@@ -222,14 +223,16 @@ void setBothSamples(int sampleRate) {
 //%
 void sendToSerial() {
 #if MICROBIT_CODAL
-    if (recording) {
+    if (recording && !sending) {
+        sending = true;
         int format = recording->getFormat();
         int skip = DATASTREAM_FORMAT_BYTES_PER_SAMPLE( format);
         StreamRecording_Buffer *node;
-        for ( node = recording->bufferChain; node; node = node->next) {
+        for ( node = recording->bufferChain; node && !recording->isRecording(); node = node->next) {
             if ( node->buffer.length()) {
-                uint8_t *ptr  = &node->buffer[0]; 
-                uint8_t *next = ptr + node->buffer.length();
+                ManagedBuffer buffer = node->buffer;
+                uint8_t *ptr  = &buffer[0]; 
+                uint8_t *next = ptr + buffer.length();
                 while ( ptr < next) {
                     int32_t v = StreamNormalizer::readSample[format](ptr);
                     ptr += skip;
@@ -237,6 +240,7 @@ void sendToSerial() {
                 }
             }
         }
+        sending = false;
     }
 #else
     target_panic(PANIC_VARIANT_NOT_SUPPORTED);
